@@ -2,8 +2,6 @@ let X = 0
 let Y = 0
 basic.forever(function () {
     for (let COUNT = 0; COUNT <= 15; COUNT++) {
-        led.plot(X, Y)
-        basic.pause(100)
         led.unplot(X, Y)
         if (COUNT < 4) {
             X = COUNT
@@ -18,6 +16,8 @@ basic.forever(function () {
             X = 0
             Y = 16 - COUNT
         }
+        led.plot(X, Y)
+        basic.pause(100)
         if (input.buttonIsPressed(Button.B)) {
             for (let index = 0; index < 4; index++) {
                 basic.showNumber(COUNT)
